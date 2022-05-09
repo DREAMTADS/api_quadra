@@ -1,14 +1,18 @@
 import mongoose from "mongoose";
 
+const gradeHorariaSchema = new mongoose.Schema({
+    inicio: Date,
+    fim: Date
+})
+
 const horairoSchema = new mongoose.Schema(
     {
         id: {type: String},
-        horaInicio: {type: Date, required: true},
-        horaTermino: {type: Date, required: true},
-        reserva: {type: mongoose.Schema.Type.ObjectId, ref: 'reserva', required: true},
+        horarios: {type: [gradeHorariaSchema], required: true},
+        quadra: {type: mongoose.Schema.Type.ObjectId, ref: 'quadras', required: true},
     }
 )
 
-const horairo = mongoose.model('autores', horairoSchema);
+const horairo = mongoose.model('horarios', horairoSchema);
 
 export default horairo;
