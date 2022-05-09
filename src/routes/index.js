@@ -1,5 +1,6 @@
 import express from "express";
 import quadras from './quadrasRoutes.js';
+import reservas from './reservasRoutes.js';
 
 const routes = (app) => {
     app.route('/').get((req, res) => {
@@ -8,7 +9,8 @@ const routes = (app) => {
 
     app.use(
         express.json(),
-        quadras
+        quadras,
+        reservas
     )
 }
 
