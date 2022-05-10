@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const gradeHorariaSchema = new mongoose.Schema({
+    dia: Date,
     inicio: Date,
     fim: Date
 })

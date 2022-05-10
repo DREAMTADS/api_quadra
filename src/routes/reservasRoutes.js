@@ -5,7 +5,7 @@ const router = express.Router();
 
 router
     .get('/reservas', ReservasController.listarReservas)
-    .get('/reservas/horarios/:id', ReservasController.buscarHorariosPorId)
+    .get('/reservas/horarios/:quadra', ReservasController.buscarHorariosPorId)
     .get('/reservas/:id', ReservasController.buscarReservaPorId)
     .post('/reservas', ReservasController.gerarReserva)
 

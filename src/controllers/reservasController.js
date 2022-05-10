@@ -9,14 +9,13 @@ class ReservasController {
     }
 
     static buscarHorariosPorId = (req, res) => {
-        const id = req.params.id;
-        reservas.findById(id)
+        reservas.find({'quadra': req.params.quadra})
         .populate('horarios')
-        .exec((err, {horarios, nomeCliente}) => {
+        .exec((err, reserva) => {
             if(err) {
                 res.status(400).send({message: err.message});
             } else {
-                res.status(200).json({horarios, nomeCliente});    
+                res.status(200).json(reserva);    
             }
         });
     }
